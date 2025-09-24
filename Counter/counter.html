@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Counter</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,400;0,500;0,700;0,900;1,700&display=swap');
+
+        body {
+            background-color: #f1f5f8;
+        }
+
+        .main {
+            margin: 10px;
+            padding: 10px;
+            width: 85vw;
+            height: 90vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            font-family: roboto;
+            letter-spacing: 3px;
+        }
+
+        .head {
+            line-height: 1;
+            font-size: 86px;
+        }
+
+        .counter {
+            font-size: 96px;
+        }
+
+        .btn-s {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 10px;
+            gap: 25px;
+        }
+
+        .dec,
+        .res,
+        .inc {
+            padding: 5px;
+            background-color: transparent;
+            font-family: Arial, Helvetica, sans-serif;
+            letter-spacing: 3px;
+            border-radius: 8px;
+            transition: all 0.3s cubic-bezier(0.57, 0.37, 0.21, 0.56);
+            cursor: pointer;
+        }
+
+        .dec:hover,
+        .res:hover,
+        .inc:hover {
+            background-color: #222222;
+            color: aliceblue;
+            font-weight: bold;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="main">
+        <span class="head">Counter</span>
+        <span class="counter">0</span>
+        <span class="btn-s">
+            <button class="btn dec" type="button">DECREASE</button>
+            <button class="btn res" type="button">RESET</button>
+            <button class="btn inc" type="button">INCREASE</button>
+        </span>
+    </div>
+    <script>
+        /*
+        MEHTOD ---- NOT WORKING ----
+        let num = 0;
+        let numb;
+        document.querySelector(".dec").addEventListener("click", ()=>{
+            let numb = --num;
+            // console.log(numb);
+            document.querySelector(".counter").innerHTML = numb;
+        })
+        document.querySelector(".res").addEventListener("click", () => {
+            document.querySelector(".counter").innerHTML = 0;
+            numb = 0;
+        })
+        document.querySelector(".inc").addEventListener("click", () => {
+            let numb = ++num;
+            // console.log(numb);
+            document.querySelector(".counter").innerHTML = numb;
+        })
+        */
+
+        let count = 0;
+        let value = document.querySelector(".counter");
+        let btns = document.querySelectorAll(".btn")
+
+        btns.forEach((btn)=>{
+            btn.addEventListener("click", (e)=>{
+                let styleList = e.currentTarget.classList;
+                if(styleList.contains("dec")){
+                    count--;
+                }
+                else if(styleList.contains("inc")){
+                    count++;
+                }
+                else{
+                    count = 0;
+                }
+                
+                if(count > 0){
+                    value.style.color = "#14a80f";
+                }
+                else if(count < 0){
+                    value.style.color = "#db2c52"
+                }
+                else{
+                    value.style.color = "black"
+                }
+                value.innerHTML = count;
+            })
+        })
+    </script>
+</body>
+
+</html>
