@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Modal content</title>
+    <style>
+        @import url("https://fonts.googleapis.com/css?family=Open+Sans|Roboto:400,700&display=swap");
+
+        body {
+            background-image: url("https://cdn.decorilla.com/online-decorating/wp-content/uploads/2020/12/Moody-home-office-background-with-builtin-shelves-scaled.jpeg?width=900");
+            background-repeat: no-repeat;
+            background-size: cover;
+            background-position: top center;
+        }
+
+        .main {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 80vh;
+        }
+
+        .container {
+            background-color: white;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            width: 25vw;
+            border-radius: 10px;
+            box-sizing: 0px 5px 5px 5px gray;
+            padding: 50px;
+            size: 96px;
+            /* font-family: roboto; */
+            font-weight: bolder;
+            position: relative;
+            z-index: 0;
+        }
+
+        .btn {
+            padding: 15px;
+        }
+
+        .btn-click {
+            background-color: rgb(49, 160, 197);
+            color: white;
+            letter-spacing: 5px;
+            border: none;
+            border: 2px solid white;
+            border-radius: 8px;
+            padding: 5px 15px;
+            cursor: pointer;
+            transition: all 0.3s linear;
+        }
+
+        .btn-click:hover {
+            background-color: white;
+            color: rgb(49, 160, 197);
+            border: 2px solid rgb(49, 160, 197);
+            transition: all 0.3s linear;
+        }
+
+        .open{
+            background-color: rgb(47, 145, 152);
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            height: 30px;
+            width: 20vw;
+            border-radius: 10px;
+            box-sizing: 0px 5px 5px 5px gray;
+            padding: 50px;
+            text-align: center;
+            /* font-family: roboto; */
+            font-weight: bolder;
+            position: absolute;
+            z-index: 1;
+            display: none;
+        }
+        .close{
+            width: 25px;
+            cursor: pointer;
+            transform: rotate(0deg);
+            transition: all 0.3s linear;
+        }
+        .close:hover{
+            transform: scale(1.5, 1.5);
+            transition: all 0.3s linear;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="main">
+        <div class="container">
+            Modal Project
+            <div class="btn">
+                <button class="btn-click">CLICK</button>
+            </div>
+        </div>
+        <div class="open">
+            <span>SOME CONTENT</span>
+            <span><img class="close" src="close.svg" alt=""></span>
+        </div>
+    </div>
+    <script>
+        document.querySelector(".btn-click").addEventListener("click", ()=>{
+            document.querySelector(".open").style.display = "block";
+        })
+        document.querySelector(".close").addEventListener("click", ()=>{
+            document.querySelector(".open").style.display = "none";
+        })
+    </script>
+</body>
+
+</html>
