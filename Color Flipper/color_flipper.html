@@ -54,31 +54,14 @@
             background: white;
         }
 
-        .main1 {
+        .main1, .main2, .main3 {
             height: 100vh;
             display: flex;
             flex-direction: column;
             justify-content: center;
             align-items: center;
             border: 1px solid black;
-        }
-        .main2 {
-            height: 100vh;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            border: 1px solid black;
-            margin: 15px;
-        }
-        .main3 {
-            height: 100vh;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            border: 1px solid black;
-            margin: 15px;
+            margin: 0px 15px 15px 15px;
         }
 
         .box {
@@ -94,10 +77,6 @@
             font-weight: bold;
         }
 
-        .change {
-            color: lightskyblue;
-        }
-
         .btn1, .btn2, .btn3 {
             font-size: 16px;
             border: 2px solid black;
@@ -106,12 +85,13 @@
             background-color: transparent;
             cursor: pointer;
             font-family: roboto;
+            font-weight: bold;
+            transition: all 0.3s linear;
         }
 
         .btn1:hover, .btn2:hover, .btn3:hover {
             background-color: #222222;
             color: white;
-            font-weight: bold;
             transition: all 0.3s linear;
         }
     </style>
@@ -179,10 +159,8 @@
         
         document.querySelector(".btn1").addEventListener("click", ()=>{
         // 10 colors array
-        let simpColor = ["blue", "green", "grey", "orange", "red", "white", "black", "yellow", "pink", "beige"];
+        let simpColor = ["Blue", "Green", "Grey", "Orange", "Red", "White", "Black", "Yellow", "Pink", "Beige"];
         let random = Math.floor(Math.random()*10);
-        // console.log(random);
-        // console.log(simpColor[random]);
             document.querySelector(".main1").style.backgroundColor = simpColor[random];
             document.querySelector(".change1").innerHTML = simpColor[random];
             document.querySelector(".nav").style = "box-shadow:none;"
@@ -190,26 +168,20 @@
         
         // HEX -----------------------------
         
-        let hexColorArr = [1, 2, 3, 4, 5, 6, 7, 8, 9, 'A', 'B', 'C', 'D', 'E', 'F'];
         document.querySelector(".btn2").addEventListener("click", () => {
+            let hexColorArr = [1, 2, 3, 4, 5, 6, 7, 8, 9, 'A', 'B', 'C', 'D', 'E', 'F'];
             let hexColor = ['#'];
             let randHexArr;
             for (let i = 0; i < 6; i++) {
                 function randomNumberHex() {
                     randHexArr = Math.floor(Math.random() * hexColorArr.length);
-                    // console.log(randHexArr);
                     hexColor.push(hexColorArr[randHexArr]);
                 }
                 randomNumberHex();
             }
-            // console.log(hexColor);
             let arrtoStr = hexColor.toString();
-            // console.log(arrtoStr);
             let replaceComma = arrtoStr.replaceAll(",", "");
-            // console.log(replaceComma);
 
-            // let str = hexColor.toString();
-            // console.log(str);
             document.querySelector(".main2").style.backgroundColor = replaceComma;
             document.querySelector(".change2").innerHTML = replaceComma;
             document.querySelector(".nav").style = "box-shadow:none;"
