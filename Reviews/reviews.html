@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Reviews</title>
+    <style>
+        body {
+            background-color: #f3f5f8;
+        }
+
+        .main {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .container {
+            display: flex;
+            width: 80vw;
+            height: 80vh;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            padding: 15px;
+        }
+
+        .head {
+            padding: 15px;
+            /* font-family: 'Courier New', Courier, monospace; */
+            /* size: 48px; */
+            font-size: larger;
+            font-weight: bold;
+            text-align: center;
+        }
+
+        .line {
+            height: 5px;
+            width: 200px;
+            background-color: rgb(51, 190, 236);
+        }
+
+        .box {
+            background-color: aqua;
+            width: 48vw;
+            height: 48vw;
+            border-radius: 5px;
+            box-shadow: 12px 10px 20px 1px gray;
+            padding: 15px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .imgAnimated {
+            width: 200px;
+            border-radius: 96px;
+            padding: 5px;
+        }
+
+        .name {
+            /* size: 55px; */
+            font-size: larger;
+            color: rgb(69, 29, 29);
+            font-weight: bold;
+            padding: 5px;
+        }
+
+        .role {
+            font-size: large;
+            color: rgb(45, 146, 180);
+            padding: 5px;
+        }
+
+        .description {
+            font-size: large;
+            text-align: center;
+            width: 555px;
+            padding: 5px;
+        }
+
+        .btns {
+            display: flex;
+            gap: 15px;
+        }
+
+        .left,
+        .right {
+            font-size: larger;
+            font-weight: bolder;
+            color: rgb(45, 146, 180);
+            border: 2px solid rgb(17, 83, 138);
+            padding: 5px;
+            margin: 5px;
+            cursor: pointer;
+        }
+
+        .left:hover,
+        .right:hover {
+            color: rgb(17, 83, 138);
+        }
+
+        .randBtn {
+            font-size: larger;
+            font-weight: bold;
+            background-color: transparent;
+            border: 2px solid rgb(17, 83, 138);
+            border-radius: 8px;
+            padding: 5px;
+            margin: 20px 5px;
+            cursor: pointer;
+        }
+
+        .randBtn:hover {
+            background-color: rgb(17, 83, 138);
+            color: white;
+            transition: all 0.3s linear;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="main">
+        <div class="container">
+            <span class="head">
+                Our Reviews
+                <div class="line"></div>
+            </span>
+            <div class="box">
+                <img class="imgAnimated" src="" alt="Banana img">
+                <span class="name">
+
+                </span>
+                <span class="role">
+
+                </span>
+                <span class="description">
+
+                </span>
+
+                <div class="btns">
+                    <span class="left">&lt;</span>
+                    <span class="right">&gt;</span>
+                </div>
+                <button class="randBtn">Surprise ME</button>
+            </div>
+
+        </div>
+    </div>
+
+    <script>
+        // Array of the local reviews
+        const reviews = [
+            {
+                id: "1",
+                img: "https://i.pinimg.com/736x/83/4f/9a/834f9a61dc5e40f7e1ff3d6f77566468.jpg",
+                name: "Joey Banana",
+                role: "Web Designer",
+                description: "I love HTML, CSS and Lorem ipsum dolor sit amet consectetur, adipisicing elit. Consequuntur tempore blanditiis repellendus veniam praesentium ad qui aut aliquid nostrum. Possimus, quaerat."
+            },
+            {
+                id: "2",
+                img: "https://thumbs.dreamstime.com/z/apple-cartoon-illustration-53440405.jpg",
+                name: "Adam Apple",
+                role: "Web Developer",
+                description: "I love JS, PHP, Python and Lorem, ipsum dolor sit amet consectetur adipisicing elit. Laboriosam sint, blanditiis saepe sunt dignissimos eum ipsam ut, excepturi iste quae cupiditate tenetur."
+            },
+            {
+                id: "3",
+                img: "https://t3.ftcdn.net/jpg/06/15/40/56/360_F_615405673_4ewkLGonApipIDIhwnCc0u9DIhrkCh9i.jpg",
+                name: "Oliver Orange",
+                role: "Project Manger",
+                description: "I love Projects and Lorem ipsum dolor sit amet consectetur, adipisicing elit. Consequuntur tempore blanditiis repellendus veniam praesentium ad qui aut aliquid nostrum. Possimus, quaerat."
+            },
+            {
+                id: "4",
+                img: "https://png.pngtree.com/png-clipart/20200701/original/pngtree-cute-mango-cartoon-vector-png-image_5377372.jpg",
+                name: "Maxi Mango",
+                role: "Senior Developer",
+                description: "I am expert of eveything and Lorem ipsum dolor sit amet consectetur, adipisicing elit. Consequuntur tempore blanditiis repellendus veniam praesentium ad qui aut aliquid nostrum. Possimus, quaerat."
+            },
+            {
+                id: "5",
+                img: "https://banner2.cleanpng.com/20231207/cyj/transparent-fruit-cartoon-cartoon-cherry-with-two-leaves-and-1710982952153.webp",
+                name: "Carlos Cherry",
+                role: "Senior Manager",
+                description: "I can manage everything and and Lorem ipsum dolor sit amet consectetur, adipisicing elit. Consequuntur tempore blanditiis repellendus veniam praesentium ad qui aut aliquid nostrum. Possimus, quaerat."
+            },
+
+        ]
+
+        // Select items - 
+        const img = document.querySelector(".imgAnimated");
+        const name = document.querySelector(".name");
+        const role = document.querySelector(".role");
+        const des = document.querySelector(".description");
+
+        const prev = document.querySelector(".left");
+        const nxt = document.querySelector(".right");
+        const surprise = document.querySelector(".randBtn");
+
+        // Set Current Item -
+
+        // show person based on item
+        function showReview(review) {
+            let itemsArr = reviews[review];
+            img.src = itemsArr.img;
+            name.innerHTML = itemsArr.name;
+            role.innerHTML = itemsArr.role;
+            des.innerHTML = itemsArr.description;
+        }
+
+        let currItem = 0;
+
+        // Load Initial Item - 
+        window.addEventListener('DOMContentLoaded', function () {
+            let item = reviews[currItem];
+            img.src = item.img;
+            name.innerHTML = item.name;
+            role.innerHTML = item.role;
+            des.innerHTML = item.description;
+        })
+
+        // Show Next Review - 
+        nxt.addEventListener("click", () => {
+            currItem++;
+            if (currItem > reviews.length - 1) {
+                currItem = 0;
+            }
+            showReview(currItem);
+        })
+
+        // Show Previous Review 
+        prev.addEventListener("click", () => {
+            currItem--;
+            if (currItem < 0) {
+                currItem = reviews.length - 1;
+            }
+            showReview(currItem);
+        })
+
+        // Show Random Review -
+        surprise.addEventListener("click", ()=>{
+            currItem = Math.floor(Math.random() * reviews.length);
+            showReview(currItem);
+        })
+    </script>
+</body>
+
+</html>
