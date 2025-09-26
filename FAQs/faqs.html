@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>FAQs</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Great+Vibes&display=swap');
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      background-color: rgb(219, 227, 219);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .container {
+      width: 100%;
+      padding: 25px;
+      display: flex;
+      flex-direction: column;
+      gap: 15px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .head {
+      color: green;
+      font-size: 40px;
+      font-weight: bolder;
+      font-family: "Great Vibes", cursive;
+      text-align: center;
+      margin-bottom: 20px;
+    }
+
+    .faq {
+      background-color: #ffffff;
+      padding: 10px;
+      border-radius: 8px;
+      box-shadow: 5px 5px 8px 5px rgb(220, 204, 204);
+      cursor: pointer;
+      width: 70vh;
+    }
+
+    .faq-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      letter-spacing: 1px;
+      font-size: 20px;
+    }
+
+    .faq img {
+      width: 20px;
+      transition: transform 0.4s ease;
+    }
+
+    .faq.active img {
+      transform: rotate(135deg);
+    }
+
+    .answer {
+      max-height: 0;
+      opacity: 0;
+      overflow: hidden;
+      transition: max-height 0.4s ease, opacity 0.4s ease, margin 0.4s ease;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      font-size: 19px;
+    }
+
+    .faq.active .answer {
+      max-height: 100px; /* enough space for text */
+      opacity: 1;
+      margin-top: 10px;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <span class="head">General Questions</span>
+
+    <div class="faq">
+      <div class="faq-header">
+        <span>Do You Accept All Major Credit Cards?</span>
+        <img src="plus.svg" alt="+">
+      </div>
+      <div class="answer">Yes, we accept all major credit cards.</div>
+    </div>
+
+    <div class="faq">
+      <div class="faq-header">
+        <span>Do You Support Local Farmers?</span>
+        <img src="plus.svg" alt="+">
+      </div>
+      <div class="answer">Yes, we support local farmers.</div>
+    </div>
+
+    <div class="faq">
+      <div class="faq-header">
+        <span>Do You Use Organic Ingredients?</span>
+        <img src="plus.svg" alt="+">
+      </div>
+      <div class="answer">Yes, we use organic ingredients.</div>
+    </div>
+  </div>
+
+  <script>
+    const faqs = document.querySelectorAll(".faq");
+
+    faqs.forEach((faq) => {
+      faq.addEventListener("click", () => {
+        faq.classList.toggle("active");
+      });
+    });
+  </script>
+</body>
+</html>
